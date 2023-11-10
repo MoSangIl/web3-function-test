@@ -1,0 +1,1 @@
+geth --datadir . --networkid 8192021 --syncmode light --verbosity 3 --http --http.port 8545 --http.corsdomain="chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn,http://remix.ethereum.org,http://127.0.0.1:5500" --http.api="eth,personal,net" --allow-insecure-unlock 

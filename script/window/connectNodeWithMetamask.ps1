@@ -1,0 +1,1 @@
+geth --datadir . --networkid 8192021 --syncmode light --http --http.port 8545 --http.corsdomain="chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn,http://remix.ethereum.org,http://127.0.0.1:5500"

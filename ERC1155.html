@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.7.0/dist/web3.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>ERC1155 테스트 페이지</title>
+    <style>
+        body {
+            padding: 10%;
+            text-align: left;
+        }
+        button {
+            border-width: 2px;
+            border-color: black;
+            font-size: large;
+            margin: 10px;
+            background-color: aliceblue;
+        }
+        * {
+            margin: 5px;
+        }
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>ERC1155 기능 테스트</h1>
+    <ul>
+        <li>계정 별 토큰 잔액 확인하기</li>
+        <li>토큰 한 종류 전송하기</li>
+        <li>여러 묶음 토큰 전송하기</li>
+        <li>계정에 대한 승인 후 위임 전송하기</li>
+    </ul>
+    <a href="./index.html">web3 기본 기능 테스트 페이지로 이동</a>
+    <a href="./erc20.html">ERC20 테스트 페이지로 이동</a>
+    <a href="./NFT.html">NFT 테스트 페이지로 이동</a>
+    <a href="#" style="color: black;">ERC1155 테스트 페이지로 이동</a>
+    
+    <div style="border: 1px solid black; height: 0;"></div>
+    
+    <h2>배포된 ERC1155 토큰 정보</h2>
+    <div id="items" style="margin: 1rem;"></div>
+
+    <div style="border: 1px solid black; height: 0;"></div>
+    
+    <h2>계정별 ERC1155토큰 잔액</h2>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;" id="tokens-for-account">
+    </div>
+
+    <div style="border: 1px solid black; height: 0;"></div>
+    
+    <h2>ERC1155 전송하기 (토큰 한개)</h2>
+    <div style="margin: 1rem;">
+        <label for="send-one-from">from account: </label>
+        <select name="from" id="send-one-from"></select>
+        <br>
+        <label for="send-one-to">to account: </label>
+        <input type="text" id="send-one-to">
+        <br>
+        <label for="send-one-tid">token id: </label>
+        <input type="number" value="0" min="0" id="send-one-tid">
+        <br>
+        <label for="send-one-value">amount: </label>
+        <input type="number" value="0" min="0" id="send-one-value">
+        <br>
+        <button id="safe-transfer">전송하기</button>  
+    </div>
+
+    <div style="border: 1px solid black; height: 0;"></div>
+    
+    <h2>ERC1155 전송하기 (토큰 여러개)</h2>
+    <div style="margin: 1rem;">
+        <label for="send-some-from">from account: </label>
+        <select name="from" id="send-some-from">
+            <option value="">--please select account--</option>
+        </select>
+        <br>
+        <label for="send-some-to">to account: </label>
+        <input type="text" id="send-some-to">
+        <br>
+        <div>보낼 토큰 id 선택</div>
+        <div id="send-some-tid" style="display: flex; flex-direction: column;">
+        </div>    
+        <button id="safe-batch-transfer">전송하기</button>  
+    </div>
+</body>
+<script src="js/connect_provider.js"></script>
+<script src="js/get_erc1155.js"></script>
+<script src="js/get_erc1155Balance.js"></script>
+<script src="js/send_erc1155.js"></script>
+</html>

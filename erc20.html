@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.7.0/dist/web3.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>ERC20</title>
+    <style>
+        body {
+            padding: 10%;
+            text-align: left;
+        }
+        button {
+            border-width: 2px;
+            border-color: black;
+            font-size: large;
+            margin-right: 10px;
+            background-color: aliceblue;
+        }
+        * {
+            margin: 5px;
+        }
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>ERC20</h1>
+    <ul>
+        <li>잔액 조회</li>
+        <li>토큰 전송</li>
+    </ul>
+    <a href="./index.html">web3 기본 기능 테스트 페이지로 이동</a>
+    <a href="#" style="color: black;">ERC20 테스트 페이지로 이동</a>
+    <a href="./NFT.html">NFT 테스트 페이지로 이동</a>
+    <a href="./ERC1155.html">ERC1155 테스트 페이지로 이동</a>
+    <!-- <a href="./index.html">Ethereum</a><br>
+    <a href="./NFT.html">NFT</a> -->
+    <div style="border: 1px solid black; height: 0;"></div>
+    <h2>노드에 있는 계정 잔액 조회</h2>    
+    <span style="display: flex; flex-direction: row;"  id="account-erc20-balance"></span>
+    <div style="border: 1px solid black; height: 0;"></div>
+
+    <h1>Transaction</h1><br>
+    <h4>주소 선택</h4>
+    <div>
+        (from)
+        <select id="from-erc20-account">
+            <option>--Please choose an account--</option>
+        </select>
+        (to)
+        <select id="to-erc20-account">
+            <option>--Please choose an account--</option>
+        </select><br>
+    </div><br>
+    <h4>allowance 조회</h4>
+    <div>
+        <span id="allowance-account-info"></span>
+        <span id="allowance">버튼을 누르세요</span>
+        <b>B</b>
+        <button id="check-allowance-btn">click</button>
+    </div><br>
+    <h4>approve 설정</h4>
+    <div>
+        <input type="number" min="1" id="approve-amount" value="1"> 
+        <b>B</b>
+        <button id="approve-btn">click</button>
+        <span id="approve-info"></span>
+    </div><br>
+    <h4>BOM Token 전송 (transfer)</h4>
+    <div>
+        <input type="number" min="1" id="erc20-transfer-amount" value="1"> 
+        <b>B</b>
+        <button id="transfer-btn">click</button>
+        <span id="transfer-info"></span>
+    </div><br>
+    <h4>BOM Token 전송 (transferFrom)</h4>
+    <div>
+        <input type="number" min="1" id="erc20-transferfrom-amount" value="1"> 
+        <b>B</b>
+        <button id="transferfrom-btn">click</button>
+        <span id="transferfrom-info"></span>
+    </div>
+
+
+
+</body>
+<script src="js/connect_provider.js"></script>
+<script src="js/get_erc20.js"></script>
+<script src="js/get_erc20_balance.js"></script>
+<script src="js/erc20_transaction.js"></script>
+</html>
